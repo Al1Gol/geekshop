@@ -219,3 +219,4 @@ fabric.properties
 
 # Temporary files
 *.swp
+*.save

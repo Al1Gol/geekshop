@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def main(request):
-    title = "Главная"
+    title = "главная"
     products = [
         {
             "name": "Отличный стул",
