@@ -2,7 +2,7 @@ import datetime
 from django.conf import settings
 from mainapp.models import Products
 from django.shortcuts import render
-from .models import ProductCategory, Products
+from .models import ProductCategory, Products, Contact
 from django.utils import timezone
 
 def main(request):
