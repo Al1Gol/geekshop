@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authnapp',
 ]
 
+# Auth model
 AUTH_USER_MODEL = 'authnapp.ShopUser'
 
 MIDDLEWARE = [
