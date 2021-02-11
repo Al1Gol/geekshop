@@ -19,6 +19,7 @@ class Products(models.Model):
     quanity = models.PositiveIntegerField(verbose_name="количество на складе", default=0)
 
     def __str__(self):
+<<<<<<< HEAD
         return f"{self.name} ({self.category.name})"
 
 class Contact(models.Model):
@@ -29,3 +30,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.pk} {self.email}"
+=======
+        return f"{self.name} ({self.category.name})"
+>>>>>>> 7d020590c013079625ac26f72e9e5bb6c8f452bb
