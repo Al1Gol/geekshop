@@ -1,14 +1,18 @@
 import datetime
+
 from django.conf import settings
-from mainapp.models import Products
 from django.shortcuts import render
-from .models import ProductCategory, Products, Contact
 from django.utils import timezone
+
+from mainapp.models import Products
+
+from .models import Contact, ProductCategory, Products
+
 
 def main(request):
     title = "главная"
     products = Products.objects.all()
-    content = {"title": title, "products": products, "media_url":settings.MEDIA_URL}
+    content = {"title": title, "products": products, "media_url": settings.MEDIA_URL}
     return render(request, "mainapp/index.html", content)
 
 
@@ -25,7 +29,6 @@ def products(request, pk=None):
     if pk:
         print(f"User select category: {pk}")
     return render(request, "mainapp/products.html", content)
-
 
 
 def contact(request):
