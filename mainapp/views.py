@@ -1,17 +1,15 @@
-import datetime
-
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
-from mainapp.models import Products
-
-from .models import Contact, ProductCategory, Products
+from .models import Contact, Products, ProductCategory
 
 
 def main(request):
     title = "главная"
-    products = Products.objects.all()
+
+    products = Products.objects.all()[:4]
+
     content = {"title": title, "products": products, "media_url": settings.MEDIA_URL}
     return render(request, "mainapp/index.html", content)
 
@@ -19,6 +17,21 @@ def main(request):
 def products(request, pk=None):
     title = "продукты"
     links_menu = ProductCategory.objects.all()
+    if pk is not None:
+        if pk == 0:
+            products = Products.objects.all().order_by("price")
+            category = {"name": "все"}
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Products.objects.filter(category__pk=pk).order_by("price")
+        content = {
+            "title": title,
+            "links_menu": links_menu,
+            "category": category,
+            "products": products,
+            "media_url": settings.MEDIA_URL,
+        }
+        return render(request, "mainapp/products_list.html", content)
     same_products = Products.objects.all()
     content = {
         "title": title,
