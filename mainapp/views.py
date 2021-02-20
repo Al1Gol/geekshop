@@ -6,7 +6,7 @@ from django.utils import timezone
 
 from basketapp.models import Basket
 
-from .models import Contact, Products, ProductCategory
+from .models import Contact, ProductCategory, Products
 
 
 def main(request):
