@@ -10,7 +10,7 @@ from django.views.generic.list import ListView
 from adminapp.forms import ProductCategoryEditForm, ProductEditForm, ShopUserAdminEditForm
 from authnapp.forms import ShopUserRegisterForm
 from authnapp.models import ShopUser
-from mainapp.models import Products, ProductCategory
+from mainapp.models import ProductCategory, Products
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -182,4 +182,3 @@ def product_delete(request, pk):
 
     content = {"title": title, "product_to_delete": product, "media_url": settings.MEDIA_URL}
     return render(request, "adminapp/product_delete.html", content)
-    

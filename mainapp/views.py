@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from basketapp.models import Basket
 
-from .models import Contact, Products, ProductCategory
+from .models import Contact, ProductCategory, Products
 
 
 def main(request):
@@ -30,7 +30,9 @@ def get_hot_product():
 
 
 def get_same_products(hot_product):
-    same_products = Products.objects.filter(category=hot_product.category, is_active=True).exclude(pk=hot_product.pk)[:3]
+    same_products = Products.objects.filter(category=hot_product.category, is_active=True).exclude(pk=hot_product.pk)[
+        :3
+    ]
     return same_products
 
 
