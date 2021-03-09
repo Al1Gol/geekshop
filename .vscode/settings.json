@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/al/.pyenv/versions/3.8.6/envs/geekshop/bin/python",
+    "python.pythonPath": "/home/al/.pyenv/versions/3.8.6/envs/geekshop/bin/python3.8",
     "python.languageServer": "Pylance",
     "python.experiments.optOutFrom": ["All"],
     "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",

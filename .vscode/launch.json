@@ -8,13 +8,30 @@
         {
             "name": "Django",
             "type": "python",
+            "python": "/home/al/.pyenv/versions/3.8.6/envs/geekshop/bin/python3.8",
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver",
                 "0.0.0.0:8000"
             ],
-            "django": true
-        }
+            "django": true,
+            "sudo": true,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Django",
+            "type": "python",
+            "python": "/home/al/.pyenv/versions/3.8.6/envs/geekshop/bin/python3.8",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "0.0.0.0:8000"
+            ],
+            "django": true,
+            "sudo": true,
+            "console": "externalTerminal"
+        },
     ]
 }
