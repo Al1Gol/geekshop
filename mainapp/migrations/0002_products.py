@@ -14,16 +14,58 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Products",
             fields=[
-                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("name", models.CharField(max_length=128, verbose_name="название продукта")),
-                ("image", models.ImageField(blank=True, upload_to="products_images", verbose_name="изображение")),
-                ("short_desc", models.CharField(blank=True, max_length=128, verbose_name="краткое описание")),
-                ("description", models.TextField(blank=True, verbose_name="описание продукта")),
-                ("price", models.DecimalField(decimal_places=2, default=0, max_digits=8, verbose_name="цена продукта")),
-                ("quanity", models.PositiveIntegerField(default=0, verbose_name="количество на складе")),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=128, verbose_name="название продукта"),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        upload_to="products_images",
+                        verbose_name="изображение",
+                    ),
+                ),
+                (
+                    "short_desc",
+                    models.CharField(
+                        blank=True,
+                        max_length=128,
+                        verbose_name="краткое описание",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="описание продукта"),
+                ),
+                (
+                    "price",
+                    models.DecimalField(
+                        decimal_places=2,
+                        default=0,
+                        max_digits=8,
+                        verbose_name="цена продукта",
+                    ),
+                ),
+                (
+                    "quanity",
+                    models.PositiveIntegerField(default=0, verbose_name="количество на складе"),
+                ),
                 (
                     "category",
-                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="mainapp.ProductCategory"),
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="mainapp.ProductCategory",
+                    ),
                 ),
             ],
         ),

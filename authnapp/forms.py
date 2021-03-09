@@ -43,7 +43,15 @@ class ShopUserRegisterForm(UserCreationForm):
 
     class Meta:
         model = ShopUser
-        fields = ("username", "first_name", "password1", "password2", "email", "age", "avatar")
+        fields = (
+            "username",
+            "first_name",
+            "password1",
+            "password2",
+            "email",
+            "age",
+            "avatar",
+        )
 
 
 class ShopUserEditForm(UserChangeForm):

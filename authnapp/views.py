@@ -65,7 +65,11 @@ def edit(request):
     else:
         edit_form = ShopUserEditForm(instance=request.user)
 
-    content = {"title": title, "edit_form": edit_form, "media_url": settings.MEDIA_URL}
+    content = {
+        "title": title,
+        "edit_form": edit_form,
+        "media_url": settings.MEDIA_URL,
+    }
     return render(request, "authnapp/edit.html", content)
 
 
@@ -78,7 +82,13 @@ def send_verify_mail(user):
     \n{settings.DOMAIN_NAME}{verify_link}"
 
     print(f"from: {settings.EMAIL_HOST_USER}, to: {user.email}")
-    return send_mail(title, message, settings.EMAIL_HOST_USER, [user.email], fail_silently=False,)
+    return send_mail(
+        title,
+        message,
+        settings.EMAIL_HOST_USER,
+        [user.email],
+        fail_silently=False,
+    )
 
 
 def verify(request, email, activation_key):
