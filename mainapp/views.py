@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from basketapp.models import Basket
 
-from .models import Contact, ProductCategory, Products
+from .models import Contact, Products, ProductCategory
 
 
 def main(request):
@@ -30,9 +30,7 @@ def get_hot_product():
 
 
 def get_same_products(hot_product):
-    same_products = Products.objects.filter(category=hot_product.category, is_active=True).exclude(pk=hot_product.pk)[
-        :3
-    ]
+    same_products = Products.objects.filter(category=hot_product.category, is_active=True).exclude(pk=hot_product.pk)[:3]
     return same_products
 
 
@@ -42,7 +40,7 @@ def products(request, pk=None, page=1):
     basket = get_basket(request.user)
 
     if pk is not None:
-        if pk == 0:
+        if pk == '0':
             category = {"pk": 0, "name": "все"}
             products = Products.objects.filter(is_active=True, category__is_active=True).order_by("price")
         else:
@@ -99,3 +97,4 @@ def contact(request):
     locations = Contact.objects.all()
     content = {"title": title, "visit_date": visit_date, "locations": locations}
     return render(request, "mainapp/contact.html", content)
+    

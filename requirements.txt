@@ -11,7 +11,6 @@ dockerpty==0.4.1
 docopt==0.6.2
 enum34==1.1.6
 funcsigs==1.0.2
-functools32==3.2.3.post2
 idna==2.6
 ipaddress==1.0.17
 jsonschema==2.6.0
@@ -20,11 +19,9 @@ keyrings.alt==3.0
 mock==2.0.0
 pbr==3.1.1
 pycrypto==2.6.1
-pygobject==3.26.1
 pyOpenSSL==17.5.0
 pyxdg==0.25
 PyYAML==3.12
-requests==2.18.4
 SecretStorage==2.3.1
 six==1.11.0
 texttable==0.9.1
