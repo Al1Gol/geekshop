@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "authnapp",
     "basketapp",
     "adminapp",
+    "social_django",
 ]
 
 # Auth model
@@ -138,6 +139,7 @@ else:
     AUTH_PASSWORD_VALIDATORS = []
 
 # >---<
+ALLOWED_HOSTS = ["*"]
 
 
 DOMAIN_NAME = "http://localhost:8000"
@@ -163,3 +165,26 @@ EMAIL_HOST_PASSWORD = None
 # Email as files
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = "tmp/email-messages/"
+
+# --- To the end of file ---
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "social_core.backends.vk.VKOAuth2",
+)
+
+# SOCIAL_AUTH_AUTHENTICATION_BACKENDS = ("social_core.backends.vk.VKOAuth2",)
+SOCIAL_AUTH_URL_NAMESPACE = "social"
+
+# You can save settings in file, but not in GIT!
+# SOCIAL_AUTH_VK_OAUTH2_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+# SOCIAL_AUTH_VK_OAUTH2_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+# Load settings from file
+import json
+
+with open("tmp/secrets/vk.json", "r") as f:
+    VK = json.load(f)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = VK["SOCIAL_AUTH_VK_OAUTH2_APPID"]
+SOCIAL_AUTH_VK_OAUTH2_SECRET = VK["SOCIAL_AUTH_VK_OAUTH2_KEY"]
