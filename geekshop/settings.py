@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     "authnapp",
     "basketapp",
     "adminapp",
+<<<<<<< HEAD
     "ordersapp",
+=======
+>>>>>>> 465b38eff2e8d97b60d4e050cf256a94fd086e45
     "social_django",
 ]
 
@@ -75,7 +78,10 @@ TEMPLATES = [
                 "mainapp.context_processors.basket",
                 "social_django.context_processors.backends",
                 "social_django.context_processors.login_redirect",
+<<<<<<< HEAD
                 "django.template.context_processors.media",
+=======
+>>>>>>> 465b38eff2e8d97b60d4e050cf256a94fd086e45
             ],
         },
     },
