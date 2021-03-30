@@ -5,7 +5,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
-from .models import Contact, Products, ProductCategory
+from .models import Contact, ProductCategory, Products
 
 
 def main(request):
