@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.fields import CharField, TextField
+from django.shortcuts import get_object_or_404
 
 
 # Create your models here.
@@ -24,6 +25,10 @@ class Products(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.category.name})"
+
+    @staticmethod
+    def get_items():
+        return Products.objects.filter(is_active=True).order_by("category", "name")
 
 
 class Contact(models.Model):
